@@ -1,0 +1,26 @@
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:15.0.5-ce.0
+    container_name: gitlab-ce-15.0.5-ce.0
+    restart: always
+    privileged: true
+    environment:
+      TZ: 'Asia/Shanghai'
+      GITLAB_OMNIBUS_CONFIG: |
+        gitlab_rails['time_zone'] = 'Asia/Shanghai'
+      GITLAB_ROOT_PASSWORD: 'xiangwen123'
+    ports:
+      - '443:443'
+      - '80:80'
+      - '22:22'
+    volumes:
+      - './gitlab/config:/etc/gitlab'
+      - './gitlab/data:/var/opt/gitlab'
+      - './gitlab/logs:/var/log/gitlab'
+    shm_size: '512m'
+    networks:
+      - gitlab-net
+
+networks:
+  gitlab-net:
+    driver: bridge
