@@ -35,10 +35,10 @@
 ## 后续操作：
 ### 1. 配置访问地址
 #### （1）配置 http 协议访问地址，编辑 ./config/gitlab.rb
-	external_url 'http://xw.gitlab.h5xiaomi.com'
+	external_url 'http://x.com'
 
 #### （2）配置 ssh 协议访问地址，编辑 ./config/gitlab.rb
-	gitlab_rails['gitlab_ssh_host'] = '101.37.232.108'
+	gitlab_rails['gitlab_ssh_host'] = '127.0.0.1'
 	gitlab_rails['gitlab_shell_ssh_port'] = 22
 
 #### （3）重启 bookstack 容器
